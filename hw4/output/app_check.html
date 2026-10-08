@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Customs — App Check</title>
+  <style>
+    body { margin: 0; background: #f6f7f9; color: #1d2433; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.55; }
+    main { max-width: 1040px; margin: 0 auto; padding: 40px 24px 64px; }
+    header { border-bottom: 3px solid #00356b; padding-bottom: 16px; margin-bottom: 32px; }
+    h1 { color: #00356b; margin: 0 0 6px; font-size: 2rem; }
+    header p { margin: 0; color: #4a5568; }
+    table.summary { width: 100%; border-collapse: collapse; margin-bottom: 40px; background: #fff; }
+    .summary th, .summary td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #e2e6ec; }
+    .summary th { background: #00356b; color: #fff; font-weight: 600; }
+    section { background: #fff; border: 1px solid #e2e6ec; border-radius: 8px; padding: 24px 28px; margin-bottom: 32px; }
+    h2 { margin: 0 0 12px; color: #00356b; font-size: 1.35rem; display: flex; align-items: center; gap: 12px; }
+    .pass { display: inline-block; background: #e6f4ea; color: #1e7b34; border: 1px solid #a8d5b5; border-radius: 999px; padding: 2px 12px; font-size: .8rem; font-weight: 700; letter-spacing: .04em; }
+    .meta { font-size: .92rem; color: #4a5568; margin: 0 0 14px; }
+    .meta code { background: #f0f2f5; padding: 1px 6px; border-radius: 4px; }
+    figure { margin: 0 0 14px; }
+    figure img { width: 100%; border: 1px solid #d5dae1; border-radius: 6px; display: block; }
+    figcaption { font-size: .85rem; color: #6b7280; margin-top: 6px; }
+    .result { margin: 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Campus Customs — App Check</h1>
+    <p>Functional test of the running storefront (React/Vite frontend at <code>localhost</code> + FastAPI/PydanticAI backend) against <code>data/campus_customs.db</code>. Tested October 7, 2026.</p>
+  </header>
+
+  <table class="summary">
+    <tr><th>#</th><th>Feature tested</th><th>Result</th></tr>
+    <tr><td>1</td><td>Chatbot answers price/inventory from the database</td><td><span class="pass">PASS</span></td></tr>
+    <tr><td>2</td><td>Chat category search renders product cards on the page</td><td><span class="pass">PASS</span></td></tr>
+    <tr><td>3</td><td>Usability improvement: search filter with empty-result message</td><td><span class="pass">PASS</span></td></tr>
+  </table>
+
+  <section id="test-1">
+    <h2>Test 1: Chatbot price &amp; inventory lookup <span class="pass">PASS</span></h2>
+    <p class="meta">On the <code>/products/baseball-left-chest-crewneck</code> page, asked: <em>“What is the price of this crewneck, and how many are left in size L?”</em><br>
+      Database values: <code>catalogue.price = 58.0</code>, <code>inventory</code> size L <code>quantity = 25</code>.</p>
+    <figure>
+      <img src="app_check_images/inventory.png" alt="Chatbot answering that the Baseball Left Chest Crewneck is $58 with 25 left in size L">
+      <figcaption>Product detail page with the Bulldog Assistant's reply.</figcaption>
+    </figure>
+    <p class="result">The assistant resolved “this crewneck” from the current page and replied that it costs $58 with 25 units left in size L, which matches the database exactly (the size chips on the page show the same stock levels). <strong>Passed.</strong></p>
+  </section>
+
+  <section id="test-2">
+    <h2>Test 2: Chat category search updates the page <span class="pass">PASS</span></h2>
+    <p class="meta">On <code>/products</code>, asked: <em>“What hoodies do you have?”</em></p>
+    <figure>
+      <img src="app_check_images/chat-search.png" alt="Hoodie product cards shown under 'Matches for What hoodies do you have?'">
+      <figcaption>“Selected by the Bulldog Assistant” section rendered from the chat API's structured product results.</figcaption>
+    </figure>
+    <p class="result">The assistant reported the 27 hoodies in the catalogue and returned the top 8 (e.g., Basic Hoodie Big Yale $68.00, Champion Full Zip Hood $88.00), which appeared on the page as standard product cards linking to their existing detail pages (e.g., <code>/products/basic-hoodie-big-yale</code>). <strong>Passed.</strong></p>
+  </section>
+
+  <section id="test-3">
+    <h2>Test 3: Usability — product search with empty-result state <span class="pass">PASS</span></h2>
+    <p class="meta">On <code>/products</code>, typed a keyword with no matches (<code>zzzz-no-match</code>) into the Problem 9 search filter.</p>
+    <figure>
+      <img src="app_check_images/usability.png" alt="Products page showing 0 products and a 'No matching products found' message with a Clear filters button">
+      <figcaption>Search/filter bar with live product count and friendly empty state.</figcaption>
+    </figure>
+    <p class="result">The catalogue filtered instantly to “0 products” and showed a clear “No matching products found” message with a suggestion and a one-click <em>Clear filters</em> button instead of a blank page. <strong>Passed.</strong></p>
+  </section>
+</main>
+</body>
+</html>

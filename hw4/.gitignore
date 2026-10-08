@@ -1,0 +1,49 @@
+# Local data pack: database and product images stay on your machine only
+data/
+data.zip
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+*.db-journal
+products/
+
+# Secrets: never commit real keys, passwords, or session secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*secret*
+!**/*secret*.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+
+# Node / Vite
+node_modules/
+dist/
+*.local
+npm-debug.log*
+
+# Audit-trail write temporaries and preserved unreadable copies (output/audit_trail.json itself is committed)
+*.tmp
+output/audit_trail.unreadable-*.json
+
+# Logs
+*.log
+
+# Local tools, editors, and operating systems
+.tools/
+.idea/
+.vscode/
+.claude/
+.DS_Store
+Thumbs.db
+desktop.ini

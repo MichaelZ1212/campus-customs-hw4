@@ -1,0 +1,7 @@
+.catalogue-controls { display:flex; align-items:end; gap:14px; }
+.catalogue-controls label { display:grid; gap:5px; color:var(--muted); font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.catalogue-controls select { min-width:210px; padding:12px 34px 12px 13px; color:var(--ink); background:#fff; border:1px solid var(--line); }
+.status-box strong { display:block; color:var(--ink); font-size:1.05rem; }.status-box p { margin:7px 0 18px; }.status-box .button { min-height:40px; }
+.product-skeleton { animation:pulse 1.3s ease-in-out infinite; }.product-skeleton div { aspect-ratio:1/1.08; background:#e7eaed; }.product-skeleton span { width:85%; height:15px; margin-top:17px; display:block; background:#e7eaed; }.product-skeleton span:last-child { width:50%; margin-top:10px; }
+@keyframes pulse { 50% { opacity:.48; } }
+@media(max-width:700px){.catalogue-controls{width:100%;align-items:stretch;flex-direction:column}.catalogue-controls select{width:100%}}

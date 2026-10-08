@@ -1,0 +1,2 @@
+# The dependency list lives in the project root; this keeps `pip install -r backend/requirements.txt` working.
+-r ../requirements.txt

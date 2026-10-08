@@ -1,0 +1,6 @@
+.user-greeting { color:var(--blue); }
+.logout-link { padding:0; color:#4b5661; background:none; border:0; cursor:pointer; font-weight:600; }
+.account-card label small { color:var(--muted); font-weight:400; }
+.form-error,.form-success { margin:20px 0 4px; padding:12px 14px; font-size:.86rem; line-height:1.5; }
+.form-error { color:#7a1d1d; background:#fae8e8; border-left:3px solid #a82b2b; }
+.form-success { color:#175d39; background:#e7f6ed; border-left:3px solid #287a50; }
