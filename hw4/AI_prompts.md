@@ -195,3 +195,21 @@ Copy this section when beginning a new problem. Replace the placeholders only wi
 > Finally, review and complete output/harness.md so that someone reading it can understand how the entire agent system works. Document the important structured fields defined in models.py and why they are needed, the tools available to the agent and what each one does, the safety rules, and the main technical configuration of the application.
 > Include practical specifications such as agent/tool loop limits, limits on the number of search results returned, which AI model is being used, and the commands needed to start both the frontend and backend locally.
 > Please verify that the audit log keeps previous entries across multiple runs and that the final harness.md accurately reflects the implementation that is actually in the project.
+
+## Problem 13: Push to GitHub and Submit the URL
+
+### Initial prompt
+
+> Please prepare my completed Campus Customs project for final submission through GitHub.
+> Organize the entire project inside a top-level folder called hw4 and make sure the repository contains all required source code and documentation. The project should include the Vite/React/TypeScript frontend, the FastAPI backend, the PydanticAI agent files, and all required output documentation.
+> The backend should preserve the required agent structure: backend/prompts/prompt.md, backend/agent.py, backend/tools.py, and backend/models.py, with backend/main.py serving as the FastAPI entry point.
+> Make sure the repository also contains AI_prompts.md, requirements.txt, .env.example, .gitignore, and README.md. The output/ folder should include harness.md, design.md, usability.md, app_check.html, the app_check_images/ screenshots, and audit_trail.json.
+> Before publishing, carefully review .gitignore so that sensitive or local-only files are never committed. In particular, do not upload my real .env file, campus_customs.db, or the product image data. The database and product images should remain in the local data/ folder only. Include .env.example in GitHub, but it must contain placeholders rather than real API keys, passwords, or secrets.
+> Update README.md with clear instructions explaining how someone can set up and run the project after separately placing the required local data pack in the correct location. Include instructions for installing dependencies and starting both the frontend and backend.
+> Finally, check the repository for accidentally committed secrets or local data, confirm that the required file structure is complete, and prepare it to be pushed to a public GitHub repository. The final submission should be the public repository URL that a grader can open and clone; no ZIP file is needed.
+
+### Follow-up prompt 1
+
+**What was missing:** Git and the GitHub CLI were not installed, so the first response stopped before publishing and asked for permission to install them.
+
+> yes, install到D盘，不要C盘
